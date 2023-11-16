@@ -13,7 +13,7 @@ else
     audioconf := -include $(srctree)/techpack/audio/config/sdm450autoconf.h
     include $(srctree)/techpack/audio/config/sdm450auto.conf
     export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/sdm450auto.conf)
-  else ifeq ($(CONFIG_ARCH_SDM450),y)
+  else ifeq ($(CONFIG_ARCH_MSM8953),y)
     audioconf := -include $(srctree)/techpack/audio/config/sdm450autoconf.h
     include $(srctree)/techpack/audio/config/sdm450auto.conf
     export $(shell sed 's/=.*//' $(srctree)/techpack/audio/config/sdm450auto.conf)
@@ -58,6 +58,23 @@ else
       endif
     endif
   endif
+=======
+ifeq ($(CONFIG_ARCH_SDM845), y)
+include $(srctree)/techpack/audio/config/sdm845auto.conf
+export
+endif
+ifeq ($(CONFIG_ARCH_MSM8953), y)
+include $(srctree)/techpack/audio/config/sdm450auto.conf
+export
+endif
+ifeq ($(CONFIG_ARCH_SDM670), y)
+include $(srctree)/techpack/audio/config/sdm710auto_static.conf
+export
+endif
+ifeq ($(CONFIG_ARCH_SDXPOORWILLS), y)
+include $(srctree)/techpack/audio/config/sdxpoorwillsauto.conf
+export
+>>>>>>> 3f1150a14fb0 (techpack : Rename SDM450 to MSM8953)
 endif
 
 # Use USERINCLUDE when you must reference the UAPI directories only.
