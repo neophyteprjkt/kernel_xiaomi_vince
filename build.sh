@@ -43,7 +43,6 @@ rm -f $AK3_DIR/Image.gz-dtb
 cp out/arch/arm64/boot/Image.gz-dtb $AK3_DIR
 rm -f *zip
 cd $AK3_DIR
-git checkout main &> /dev/null
 zip -r9 "../$ZIPNAME" * -x '*.git*' README.md *placeholder
 cd ..
 rm -rf out/arch/arm64/boot
